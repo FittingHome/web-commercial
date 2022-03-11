@@ -9,7 +9,7 @@ jobs:
     steps:
       - run:
           name: Install dependencies
-          command: npm install
+          command: npm update && npm install
       - run:
           name: Run Tests
           command: npm start
