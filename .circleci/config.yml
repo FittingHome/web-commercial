@@ -1,0 +1,18 @@
+version: 2.1
+orbs:
+  node: circleci/node@4.7.0
+jobs:
+  build:
+    docker:
+      - image: circleci/node:12.18.4
+      - image: circleci/mongo:3.6
+    steps:
+      - run:
+          name: Install dependencies
+          command: npm install --save
+      - run:
+          name: Run Tests
+          command: npm start
+      - run:
+          name: Connect to SSH and deploy
+          command: ssh -o StrictHostKeyChecking=no -v $WEBUSER@$WEBIP -p $PORT "pwd && ./deployLandingPage.sh"
