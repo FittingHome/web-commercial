@@ -9,10 +9,10 @@ jobs:
       - checkout
       - run:
           name: Install dependencies
-          command: npm init -y && npm install
+          command: npm install --save
       - run:
           name: Run Tests
-          command: node server.js
+          command: echo hello
       - run:
           name: Connect to SSH and deploy
           command: ssh -o StrictHostKeyChecking=no -v $WEBUSER@$WEBIP -p $PORT "pwd && ./deployLandingPage.sh"
