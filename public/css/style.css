@@ -797,3 +797,9 @@ more media queries
 		font-size: 70px;
 	}
 }
+
+#c {
+    width: 600px;
+	height: 300px;
+	border-radius: 20px;
+}
